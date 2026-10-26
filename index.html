@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PayBiyahe – Calbayog City</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>🚌 PayBiyahe</h1>
+  <p class="sub">Fare calculator and payment for rides from Calbayog City</p>
+
+  <div class="card">
+    <div class="tabs" id="tabs"></div>
+
+    <label for="dest">Destination</label>
+    <select id="dest"></select>
+    <div class="note" id="info"></div>
+
+    <div class="row">
+      <div>
+        <label for="ptype">Passenger type</label>
+        <select id="ptype">
+          <option value="regular">Regular</option>
+          <option value="student">Student (20% off)</option>
+          <option value="senior">Senior Citizen (20% off)</option>
+          <option value="pwd">PWD (20% off)</option>
+        </select>
+      </div>
+      <div>
+        <label for="qty">Passengers</label>
+        <input id="qty" type="number" min="1" max="20" value="1">
+      </div>
+    </div>
+
+    <div id="rangeBox" class="hide">
+      <label for="est">This fare has a range. Which one to pay?</label>
+      <select id="est">
+        <option value="max">Highest (safe amount)</option>
+        <option value="min">Lowest</option>
+      </select>
+    </div>
+
+    <div class="total">
+      <small id="perLine"></small>
+      <div class="big" id="total">₱0.00</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <label for="method">Payment method</label>
+    <select id="method">
+      <option>Cash</option><option>GCash</option><option>Maya</option>
+    </select>
+    <div id="cashBox">
+      <label for="cash">Cash given (₱)</label>
+      <input id="cash" type="number" min="0" step="0.25" placeholder="0.00">
+    </div>
+    <div class="err" id="err"></div>
+    <button class="btn" id="pay">Pay Now</button>
+    <div class="note">Fares are estimates based on posted fare guides. Final fare may change.</div>
+  </div>
+
+  <div class="card hide" id="rcpCard">
+    <div class="receipt" id="rcp"></div>
+    <button class="btn" id="again">New Trip</button>
+  </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

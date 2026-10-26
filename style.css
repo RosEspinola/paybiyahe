@@ -1,0 +1,216 @@
+/* =========================================
+   PayBiyahe - style.css
+   1. Colors (variables)
+   2. Base / reset
+   3. Layout
+   4. Cards
+   5. Form fields
+   6. Tabs
+   7. Total box
+   8. Buttons
+   9. Receipt
+   10. Messages and helpers
+   ========================================= */
+
+
+/* ---------- 1. COLORS (light mode) ---------- */
+:root {
+  --bg: #f4f6f8;        /* page background */
+  --card: #ffffff;      /* card background */
+  --text: #1b2733;      /* main text */
+  --muted: #5d6b78;     /* small gray text */
+  --line: #d9e0e6;      /* borders */
+  --accent: #0b6b4f;    /* green brand color */
+  --onacc: #ffffff;     /* text on green */
+  --soft: #e3f3ed;      /* light green box */
+
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Dark mode colors */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #10171d;
+    --card: #18222b;
+    --text: #e8eef3;
+    --muted: #9aa8b4;
+    --line: #2a3743;
+    --accent: #3fbf94;
+    --onacc: #06231a;
+    --soft: #17332b;
+  }
+}
+
+
+/* ---------- 2. BASE / RESET ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.45;
+}
+
+h1 {
+  font-size: 1.4rem;
+  margin: 8px 0 2px;
+}
+
+.sub {
+  color: var(--muted);
+  margin: 0 0 14px;
+  font-size: 0.9rem;
+}
+
+
+/* ---------- 3. LAYOUT ---------- */
+main {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.row > div {
+  flex: 1;
+}
+
+
+/* ---------- 4. CARDS ---------- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+
+/* ---------- 5. FORM FIELDS ---------- */
+label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 10px 0 4px;
+}
+
+select,
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 1rem;
+}
+
+
+/* ---------- 6. TABS ---------- */
+.tabs {
+  display: flex;
+  gap: 6px;
+}
+
+.tabs button {
+  flex: 1;
+  padding: 9px 4px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 10px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+/* selected tab */
+.tabs button.on {
+  background: var(--accent);
+  color: var(--onacc);
+  border-color: var(--accent);
+}
+
+
+/* ---------- 7. TOTAL BOX ---------- */
+.total {
+  background: var(--soft);
+  border-radius: 12px;
+  padding: 12px;
+  margin-top: 12px;
+}
+
+.total small {
+  color: var(--muted);
+}
+
+.total .big {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+
+/* ---------- 8. BUTTONS ---------- */
+.btn {
+  width: 100%;
+  padding: 13px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--accent);
+  color: var(--onacc);
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+
+/* ---------- 9. RECEIPT ---------- */
+.receipt {
+  border: 2px dashed var(--line);
+  border-radius: 12px;
+  padding: 14px;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.88rem;
+}
+
+.receipt div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 2px 0;
+}
+
+
+/* ---------- 10. MESSAGES AND HELPERS ---------- */
+.err {
+  color: #d33;
+  font-size: 0.85rem;
+  margin-top: 6px;
+}
+
+.note {
+  color: var(--muted);
+  font-size: 0.78rem;
+  margin-top: 8px;
+}
+
+/* used by JavaScript to show/hide things */
+.hide {
+  display: none;
+}
