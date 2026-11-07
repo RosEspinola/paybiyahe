@@ -1,16 +1,18 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>PayBiyahe – Calbayog City</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>PayBiyahe – Calbayog City</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main>
   <h1>🚌 PayBiyahe</h1>
   <p class="sub">Fare calculator and payment for rides from Calbayog City</p>
 
+  <!-- FARE CALCULATOR -->
   <div class="card">
     <div class="tabs" id="tabs"></div>
 
@@ -18,6 +20,35 @@
     <select id="dest"></select>
     <div class="note" id="info"></div>
 
+    <!-- GOOGLE MAP -->
+    <div class="map-section">
+      <div class="map-header">
+        <strong>📍 Route Map</strong>
+        <span>Calbayog City, Samar</span>
+      </div>
+
+      <iframe
+        id="routeMap"
+        title="PayBiyahe route map"
+        src="https://www.google.com/maps?q=Calbayog+City,+Samar,+Philippines&output=embed"
+        width="100%"
+        height="280"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+
+      <a
+        id="openMap"
+        href="https://www.google.com/maps/dir/?api=1&origin=Calbayog+City,+Samar,+Philippines"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="map-btn">
+        📍 Get Directions on Google Maps
+      </a>
+    </div>
+
+    <!-- PASSENGER INFORMATION -->
     <div class="row">
       <div>
         <label for="ptype">Passenger type</label>
@@ -28,6 +59,7 @@
           <option value="pwd">PWD (20% off)</option>
         </select>
       </div>
+
       <div>
         <label for="qty">Passengers</label>
         <input id="qty" type="number" min="1" max="20" value="1">
@@ -48,20 +80,31 @@
     </div>
   </div>
 
+  <!-- PAYMENT -->
   <div class="card">
     <label for="method">Payment method</label>
     <select id="method">
-      <option>Cash</option><option>GCash</option><option>Maya</option>
+      <option>Cash</option>
+      <option>GCash</option>
+      <option>Maya</option>
     </select>
+
     <div id="cashBox">
       <label for="cash">Cash given (₱)</label>
       <input id="cash" type="number" min="0" step="0.25" placeholder="0.00">
     </div>
+
     <div class="err" id="err"></div>
+
     <button class="btn" id="pay">Pay Now</button>
-    <div class="note">Fares are estimates based on posted fare guides. Final fare may change.</div>
+
+    <div class="note">
+      Fares are estimates based on posted fare guides.
+      Final fare may change.
+    </div>
   </div>
 
+  <!-- RECEIPT -->
   <div class="card hide" id="rcpCard">
     <div class="receipt" id="rcp"></div>
     <button class="btn" id="again">New Trip</button>

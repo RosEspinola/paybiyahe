@@ -1,35 +1,23 @@
+
 /* =========================================
-   PayBiyahe - style.css
-   1. Colors (variables)
-   2. Base / reset
-   3. Layout
-   4. Cards
-   5. Form fields
-   6. Tabs
-   7. Total box
-   8. Buttons
-   9. Receipt
-   10. Messages and helpers
+   PAYBIYAHE - STYLE.CSS
    ========================================= */
 
+/* ---------- 1. COLORS ---------- */
 
-/* ---------- 1. COLORS (light mode) ---------- */
 :root {
-  --bg: #f4f6f8;        /* page background */
-  --card: #ffffff;      /* card background */
-  --text: #1b2733;      /* main text */
-  --muted: #5d6b78;     /* small gray text */
-  --line: #d9e0e6;      /* borders */
-  --accent: #0b6b4f;    /* green brand color */
-  --onacc: #ffffff;     /* text on green */
-  --soft: #e3f3ed;      /* light green box */
-
-  box-sizing: border-box;
-  padding-top: env(safe-area-inset-top, 0px);
-  padding-bottom: env(safe-area-inset-bottom, 0px);
+  --bg: #f4f6f8;
+  --card: #ffffff;
+  --text: #1b2733;
+  --muted: #5d6b78;
+  --line: #d9e0e6;
+  --accent: #0b6b4f;
+  --onacc: #ffffff;
+  --soft: #e3f3ed;
 }
 
-/* Dark mode colors */
+/* Dark Mode */
+
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #10171d;
@@ -43,14 +31,16 @@
   }
 }
 
+/* ---------- 2. BASE ---------- */
 
-/* ---------- 2. BASE / RESET ---------- */
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
   background: var(--bg);
   color: var(--text);
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -68,8 +58,8 @@ h1 {
   font-size: 0.9rem;
 }
 
-
 /* ---------- 3. LAYOUT ---------- */
+
 main {
   max-width: 520px;
   margin: 0 auto;
@@ -83,10 +73,11 @@ main {
 
 .row > div {
   flex: 1;
+  min-width: 0;
 }
 
-
 /* ---------- 4. CARDS ---------- */
+
 .card {
   background: var(--card);
   border: 1px solid var(--line);
@@ -95,8 +86,8 @@ main {
   margin-bottom: 12px;
 }
 
-
 /* ---------- 5. FORM FIELDS ---------- */
+
 label {
   display: block;
   font-size: 0.8rem;
@@ -115,8 +106,8 @@ input {
   font-size: 1rem;
 }
 
-
 /* ---------- 6. TABS ---------- */
+
 .tabs {
   display: flex;
   gap: 6px;
@@ -133,15 +124,60 @@ input {
   cursor: pointer;
 }
 
-/* selected tab */
 .tabs button.on {
   background: var(--accent);
   color: var(--onacc);
   border-color: var(--accent);
 }
 
+/* ---------- 7. GOOGLE MAP ---------- */
 
-/* ---------- 7. TOTAL BOX ---------- */
+.map-section {
+  margin-top: 14px;
+  margin-bottom: 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--card);
+}
+
+.map-header {
+  padding: 11px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.map-header strong {
+  font-size: 0.9rem;
+}
+
+.map-header span {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+#routeMap {
+  display: block;
+  width: 100%;
+  height: 280px;
+  border: none;
+}
+
+.map-btn {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  background: var(--accent);
+  color: var(--onacc);
+  padding: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* ---------- 8. TOTAL BOX ---------- */
+
 .total {
   background: var(--soft);
   border-radius: 12px;
@@ -159,8 +195,8 @@ input {
   color: var(--accent);
 }
 
+/* ---------- 9. BUTTONS ---------- */
 
-/* ---------- 8. BUTTONS ---------- */
 .btn {
   width: 100%;
   padding: 13px;
@@ -179,8 +215,13 @@ input {
   cursor: not-allowed;
 }
 
+.map-btn:hover,
+.btn:hover {
+  opacity: 0.9;
+}
 
-/* ---------- 9. RECEIPT ---------- */
+/* ---------- 10. RECEIPT ---------- */
+
 .receipt {
   border: 2px dashed var(--line);
   border-radius: 12px;
@@ -196,8 +237,8 @@ input {
   padding: 2px 0;
 }
 
+/* ---------- 11. MESSAGES ---------- */
 
-/* ---------- 10. MESSAGES AND HELPERS ---------- */
 .err {
   color: #d33;
   font-size: 0.85rem;
@@ -210,7 +251,8 @@ input {
   margin-top: 8px;
 }
 
-/* used by JavaScript to show/hide things */
+/* ---------- 12. HELPERS ---------- */
+
 .hide {
   display: none;
 }
